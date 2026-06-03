@@ -12,6 +12,7 @@ import {
 export const ListProduct = (props: any) => (
   <List {...props}>
     <Datagrid>
+      <TextInput source="id" />
       <TextField source="name" />
       <TextField source="price" />
       <EditButton />

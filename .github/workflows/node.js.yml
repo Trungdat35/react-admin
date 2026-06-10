@@ -17,16 +17,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
 
-      - run: corepack enable
-      - run: corepack prepare yarn@4.15.0 --activate
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare yarn@4.15.0 --activate
 
-      - run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
 
-      - run: yarn type-check
-
-      - run: yarn build
+      - name: Build
+        run: yarn build

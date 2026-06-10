@@ -19,7 +19,7 @@ export const authProvider: AuthProvider = {
     });
 
     if (!data.length) {
-      throw new Error("Email hoặc mật khẩu không đúng");
+      throw new Error("Email hoặc mật khẩu không đúng !");
     }
 
     localStorage.setItem("user", JSON.stringify(data[0]));
